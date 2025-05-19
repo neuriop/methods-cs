@@ -45,11 +45,11 @@ namespace Methods.services
             min = 0;
             for (int i = 0; i < arr.Length; i++)
             {
-                if (i >= 90)
+                if (arr[i] >= 90)
                 {
                     max++;
                 }
-                else if (i >= 60)
+                else if (arr[i] >= 60)
                 {
                     mid++;
                 }
@@ -82,15 +82,22 @@ namespace Methods.services
                 int j = i;
                 tasks[i] = Task.Run(() =>
                 {
-                    int first = arr[i * 2];
-                    int second = (j * 2 + 1 < arr.Length) ? arr[j * 2 + 1] : first;
-                    if (isMin)
+                    try
                     {
-                        results[j] = FindMin(first, second);
+                        int first = arr[j * 2];
+                        int second = (j * 2 + 1 < arr.Length) ? arr[j * 2 + 1] : first;
+                        if (isMin)
+                        {
+                            results[j] = FindMin(first, second);
+                        }
+                        else
+                        {
+                            results[j] = FindMax(first, second);
+                        }
                     }
-                    else
+                    catch (Exception)
                     {
-                        results[j] = FindMax(first, second);
+                        throw;
                     }
                 });
             }

@@ -15,7 +15,7 @@ namespace Methods.services
             CheckPositive(d);
             distance = d[0];
             pricePerKm = d[1];
-            nightMultiplier = d[1];
+            nightMultiplier = d[2];
             return distance * pricePerKm * nightMultiplier;
         }
 

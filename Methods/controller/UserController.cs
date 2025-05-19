@@ -84,7 +84,6 @@ namespace Methods.controllers
                 }
                 catch (Exception e)
                 {
-                    System.Console.WriteLine(e.Data);
                     System.Console.WriteLine(e.Message);
                 }
             }
